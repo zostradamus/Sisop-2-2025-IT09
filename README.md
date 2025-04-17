@@ -417,6 +417,8 @@ void list_process(const char *user) {
     }
 }
 ```
+###### Output:
+![dokumentasi list_process](https://github.com/user-attachments/assets/ba7dbb9b-4ab9-4a68-8d2d-34b9aa016810)
 ##### **Fungsi run_daemon (./debugmon daemon <user>)**
 ###### Menjalankan daemon yang mencatat proses milik user tertentu setiap 5 detik ke log
 ```sh
@@ -711,5 +713,5 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
-
 ```
+
