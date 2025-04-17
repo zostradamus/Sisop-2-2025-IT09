@@ -391,6 +391,8 @@ void write_log(const char *proc_name, const char *status) {
     }
 }
 ```
+###### Output write_log di /tmp/debugmon.log
+![dokumentasi write_log](https://github.com/user-attachments/assets/359ce373-f95a-4243-898d-8a049d5375e8)
 ##### **Fungsi is_user_blocked**
 ###### Mengecek apakah file blokir user (/tmp/debugmon_deny_<user>) ada
 ```sh
@@ -476,6 +478,12 @@ while (1) {
     }
 }
 ```
+###### Bukti ./debugmon daemon <user> telah berjalan
+![dokumentasi run_daemon](https://github.com/user-attachments/assets/f8c1e5e3-387a-4d75-b7d2-79716fc8ff08)
+###### Output hasil pencatatan run_daemon di debugmon.log
+![dokumentasi run_daemon_2](https://github.com/user-attachments/assets/42ffe435-2422-4fa3-a954-9f4bc415c483)
+###### PID dari proses daemon (debugmon.pid)
+![dokumentasi run_daemon_3](https://github.com/user-attachments/assets/b99bb0a3-329d-40d5-96a7-a9d64e288ecc)
 ##### **Fungsi stop_daemon (./debugmon stop <user>)**
 ###### Membaca PID dari file, lalu mengirim SIGTERM ke daemon
 ```sh
@@ -505,6 +513,10 @@ void list_process(const char *user) {
     }
 }
 ```
+###### Bukti proses daemon sudah tidak ada
+![dokumentasi stop_daemon](https://github.com/user-attachments/assets/15e6a59a-280a-45c6-95a0-ec67c027529d)
+###### Bukti proses daemon telah di kill
+![dokumentasi stop_daemon_2](https://github.com/user-attachments/assets/302252c2-5c6b-4dd3-9ff3-86f4f42b6b35)
 ##### **Fungsi fail_user (./debugmon fail <user>)**
 ###### 1. Menulis deny file
 ###### 2. Menyalin dan memodifikasi .bashrc user agar logout otomatis saat login jika diblokir
@@ -684,6 +696,8 @@ fclose(tmp);
     write_log("revert", "RUNNING");
 }
 ```
+###### Output:
+![dokumentasi revert_user](https://github.com/user-attachments/assets/a2947697-630e-4634-bfad-3f70729749ad)
 ##### **Fungsi main**
 ###### Mengatur alur berdasarkan argumen (list, daemon, stop, fail, revert)
 ```sh
