@@ -255,7 +255,24 @@ sudo apt install libcurl4-openssl-dev libzip-dev
 ```
 
 ---
+---
+## Revisi dan Perbaikan
 
+Awalnya fungsi download and extract tidak ada, sekarang sudah ditambahkan.
+
+Fungsi filter_files juga mengalami masalah pertama batas dirName yang awalnya 10 sekarang diubah jadi 100
+```c
+ for (char c = 'A'; c <= 'Z'; c++) {
+        snprintf(dirName, sizeof(dirName), "Clue%c", c);
+        d = opendir(dirName);
+```
+diubah jadi 
+```c
+for (char c = 'A'; c <= 'D'; c++) {
+        snprintf(dirName, sizeof(dirName), "Clues/Clue%c", c);
+        d = opendir(dirName);
+```
+---
 ## Perbandingan Versi
 
 | Fitur             | Versi Lama                     | Versi Revisi                                       |
